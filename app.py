@@ -3,9 +3,6 @@ import pandas as pd
 import glob
 import os
 import altair as alt
-from apscheduler.schedulers.background import BackgroundScheduler
-from spider_utils import update_current_year_data
-import threading
 import logging
 from datetime import datetime
 import glob as pyglob
@@ -31,17 +28,8 @@ if len(log_files) > 3:
         except Exception as e:
             logger.warning(f'Failed to remove old log: {old_file}, {e}')
 
-# 只初始化一次定时任务
-if 'scheduler_started' not in st.session_state:
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(update_current_year_data, 'cron', hour=23, minute=0)
-    scheduler.start()
-    st.session_state['scheduler_started'] = True
-    threading.Thread(target=scheduler.start, daemon=True).start()
-    logger.info("定时任务已启动，每天23:00自动更新数据。")
-
 # 显示数据更新提示
-st.markdown("<div style='font-size:20px;font-weight:bold;color:#e67e22;'>数据更新已启动，每天23:00自动更新。</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:20px;font-weight:bold;color:#e67e22;'>每晚23:00自动更新数据</div>", unsafe_allow_html=True)
 
 st.title("排列三历史号码连续查询")
 
