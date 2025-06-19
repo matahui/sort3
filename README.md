@@ -29,7 +29,7 @@ streamlit run app.py
 
 本应用已部署在 Streamlit Cloud，访问地址：
 
-👉 [https://byplt6wt2sonhpvvjyukg5.streamlit.app/](https://byplt6wt2sonhpvvjyukg5.streamlit.app/)
+👉 [https://byplt6wt2sonhpvvjyukg5.streamlit.app](https://byplt6wt2sonhpvvjyukg5.streamlit.app/)
 
 ## 使用说明
 
